@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <README>Replace this file with a valid tiapp.xml
+    </README>
+    <id>com.nirmal</id>
+    <name>Nirmal</name>
+    <version>1.0.0</version>
+    <publisher>Nirmal</publisher>
+    <url>https://www.somepage.com</url>
+    <description>App Description</description>
+    <copyright>2016 by Nirmal Patel</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid></guid>
+</ti:app>

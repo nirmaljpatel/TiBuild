@@ -1,0 +1,38 @@
+{
+  "name": "Titanium Build Scripts",
+  "version": "0.1.0",
+  "description": "Grunt build scripts to perform adhoc iOS builds for Appcelerator.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirmaljpatel/TiBuild.git"
+  },
+  "author": "Nirmal Patel",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "glob": "^7.0.6",
+    "grunt": "~0.4.5",
+    "grunt-alloy": "^0.1.0",
+    "grunt-appc-cli": "^0.1.2",
+    "grunt-available-tasks": "^0.6.3",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-convert": "^0.1.12",
+    "grunt-shell": "^1.3.1",
+    "grunt-titanium": "^0.3.2",
+    "load-grunt-tasks": "^3.5.2",
+    "should": "^11.1.0",
+    "ti-mocha": "^0.2.0",
+    "time-grunt": "^1.4.0"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0"
+  },
+  "scripts": {
+    "preinstall": "sudo -i npm install -g grunt;"
+  }
+}
