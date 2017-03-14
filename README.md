@@ -8,10 +8,10 @@ A strategy to integrate with a GraphQL backend for Ti Apps.
     - Support fragments
 
 2) Translation
-    - Translation from server model definition to app models.
+    - Translation from server model to app models.
 
 2) Validation
-    - Grunt Tasks to download schema.json from the GQL Server and validate queries using ESLint.js
+    - Grunt Tasks to download schema.json from the GQL Server and validate queries using ESLint
 
-3) Testing using Mocks
-    - Provides a simple way to mock GQL queries with JSON responses stored in the project folder.
+3) Using Mocks for frontend development
+    - Provides a simple way to mock GQL query responses with JSON files stored in the project folder.
