@@ -1,12 +1,17 @@
-# TiBuild
-Grunt build scripts to perform adhoc iOS builds for Appcelerator.
+# TiGraphQL
 
-1) Place your tiapp.xml under env/[prod|test|stage] folder.
+A strategy to integrate with a GraphQL backend for Ti Apps.
 
-2) Configure build parameters in tasks/options/distribute.js
+1) Query
+    - Maintain GQL queries in separate files so that it is simple to copy-paste them across across code files and a GraphiQL web interface for quick testing.
+    - Support passing parameters 
+    - Support fragments
 
-3) Configure a version number in package.json
+2) Translation
+    - Translation from server model definition to app models.
 
-To build Ad-hoc distributables,
+2) Validation
+    - Grunt Tasks to download schema.json from the GQL Server and validate queries using ESLint.js
 
-$ grunt release [patch|major|minor]
+3) Testing using Mocks
+    - Provides a simple way to mock GQL queries with JSON responses stored in the project folder.

@@ -1,7 +1,7 @@
 {
-  "name": "Titanium Build Scripts",
+  "name": "TiGraphQL",
   "version": "0.1.0",
-  "description": "Grunt build scripts to perform adhoc iOS builds for Appcelerator.",
+  "description": "A strategy to integrate with a GraphQL backend for Ti apps.",
   "repository": {
     "type": "git",
     "url": "https://github.com/nirmaljpatel/TiBuild.git"
