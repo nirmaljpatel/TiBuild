@@ -25,10 +25,15 @@ module.exports = function(grunt) {
 		 */
 		//grunt.log.writeln('Releasing Version: ' + grunt.option('version'));
 
-		//3. Build Distributable
+		//3. Run ESLint
+		grunt.task.run('lint');
+
+		//4. Build Distributable
 		grunt.task.run('distribute');
 		
-		//4. Publish dist/<release> folder contents to some server - TODO
-		
+		//5. Publish dist/<release> folder contents to some server - TODO
+
+		//6. Revert project tree to dev version
+		grunt.task.run('copy:appc-env-dev');
 	});
 }; 

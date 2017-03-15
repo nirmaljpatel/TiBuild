@@ -50,6 +50,12 @@ module.exports = {
 			stdout:true
 		}, 
 		command : 'curl "https://api.crittercism.com/api_beta/dsym/<%= crit_appid %>" --write-out %{http_code} -F dsym=@"./dist/<%= pkg.version %>/<%= opfolder %>/<%= tiapp.name %>.dSYM.zip" -F key="<%= crit_apikey %>"'
+	},
+	'eslint' : {
+		command : '`npm bin`/eslint . --ext .gql'
+	},
+	'gql-get-schema' : {
+		command : '`npm bin`/get-graphql-schema http://10.250.3.48/graphql > ./app/assets/graphResponses/schema.json'
 	}
 
 }; 
