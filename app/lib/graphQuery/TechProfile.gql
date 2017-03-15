@@ -1,0 +1,23 @@
+query techInfo($paramAlias: String) {
+  Matches(fAlias: $paramAlias) {
+    Data {
+      IdentityID
+      FirstName
+      LastName
+      Alias
+      PhoneNumber: _ContactPhone_fOwnerID {
+        Data {
+          PhoneType
+          AreaCode
+          Number
+        }
+      }
+      EmailAddress: _ContactInternet_fOwnerID {
+        Data {
+          Address
+          InternetAddressType
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/*
+ * Customizing the Alloy Build Process
+ * https://wiki.appcelerator.org/pages/viewpage.action?pageId=35620079
+ */
+task("pre:compile", function (event, logger) {
+    logger.showTimestamp = true;
+    logger.info('event:' + JSON.stringify(event));
+
+    var path = require("path");
+    var fs = require("fs");
+    var wrench = require("wrench");
+    var _ = require('../../lib/alloy/underscore');
+
+    logger.info('----- GRAPHQL QUERY GENERATION -----');
+
+    var graphFldrName = "/graphQuery";
+    var libGraphDir = path.join(event.dir.lib, graphFldrName);
+    var resGraphDir = path.join(event.dir.resources, getTitaniumFolderName(event.alloyConfig.platform), graphFldrName);
+    _.each(wrench.readdirSyncRecursive(libGraphDir), function (fileName) {
+        if (fileName.indexOf(".gql") >= 0 || fileName.indexOf(".graphql") >= 0) {
+            logger.info('[' + libGraphDir + '/' + fileName + '] GraphQL Query processing...');
+            var gqlFileStr = fs.readFileSync(path.join(libGraphDir, fileName), 'utf8');
+
+            //Replace single quotes with double quotes and \n with single space in the query string.
+            var exportStmt = "exports.query = '" + gqlFileStr.replace(/'/g, '"').replace(/\n/g, " ") + "';";
+            logger.trace('exportStmt: ' + exportStmt);
+
+            var libFileName = path.join(resGraphDir, generateLibFileName(fileName));
+            fs.appendFileSync(libFileName, exportStmt);
+        }
+    });
+
+});
+function generateLibFileName(gqlFileName) {
+    //Changes fileExt to .js
+    var fName = gqlFileName.split(".");
+    fName.pop();
+    return fName.join() + ".js";
+}
+
+/**
+ * This is a dirty hack. 
+ * This will break if Appc decides to change the mappings 
+ * they maintain in <platform>/index.js files under 
+ * https://github.com/appcelerator/alloy/tree/master/platforms
+ */
+function getTitaniumFolderName(platform) {
+    var platforms = {
+        'ios': {
+            titaniumFolder: 'iphone'
+        }
+    };
+
+    return platforms[platform].titaniumFolder;
+}
