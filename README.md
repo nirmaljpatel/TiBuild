@@ -3,7 +3,7 @@
 A strategy to integrate with a GraphQL backend for Ti Apps.
 
 1. Query
-    - Maintain GQL queries in separate files so that it is simple to copy-paste them across across code files and a GraphiQL web interface for quick testing.
+    - Maintain GQL queries in separate files so that it is simple to copy-paste them across code files and a GraphiQL web interface for quick testing.
     - Support passing parameters 
     - Support fragments
 
@@ -11,7 +11,7 @@ A strategy to integrate with a GraphQL backend for Ti Apps.
         - Each file can contain 1 query. 
         - The query can be broken down into `fragments` - in the same file though.
     2. Define a module `<query>.js` which has functions to extract data from the received response.
-    3. `alloy.jmk` has a pre-compile hook that adds the content of this file into corresponding `<query>.js` module as and `exports.query` parameter.
+    3. `alloy.jmk` has a pre-compile hook that adds the content of this file into corresponding `<query>.js` module as an `exports.query` parameter.
 
 2. Validation
     - Grunt Tasks to download schema.json from the GQL Server and validate queries using ESLint
